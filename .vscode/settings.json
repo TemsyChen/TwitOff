@@ -2,5 +2,5 @@
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
-    "python.pythonPath": "c:\\Users\\temsy\\Documents\\GitHub\\TwitOff\\venv\\Scripts\\python.exe"
+    "python.pythonPath": "C:\\Users\\temsy\\anaconda3\\python.exe"
 }
