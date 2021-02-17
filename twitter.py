@@ -3,7 +3,10 @@
 import tweepy
 import spacy
 from models import DB, Tweet, User
+from dotenv import load_dotenv
 from os import getenv
+
+load_dotenv()
 
 #twitter api credentials
 API_KEY = getenv('TWITTER_API_KEY', default='OOPS')
@@ -45,7 +48,7 @@ def add_or_update_user(username):
             DB.session.add(db_tweet)
 
     except Exception as e:
-            # session.rollback()
+            session.rollback()
             print('Error processing{}: {}'.format(username, e))
 
     else:

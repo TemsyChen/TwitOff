@@ -24,7 +24,7 @@ class Tweet(DB.Model):
     def __repr__(self):
         return '<Tweet {}>'.format(self.text)
 
-def insert_data():
-    temsy = User(id=5, name='temsy')
-    DB.session.add(temsy)
-    DB.session.commit()
+# def insert_data():
+#     temsy = User(id=5, name='temsy')
+#     DB.session.add(temsy)
+#     DB.session.commit()

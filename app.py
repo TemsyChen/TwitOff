@@ -1,10 +1,10 @@
 """Main application and routing logic for TwitOff"""
 
 from flask import Flask, render_template, request
-from models import DB, User, insert_data
+from models import DB, User
 from twitter import add_or_update_user
 from predict import predict_user
-from os import getenv
+# from os import getenv
 
 def create_app():
 
@@ -54,7 +54,7 @@ def create_app():
 
         else:
             prediction = predict_user(user1, user2, tweet_text)
-            message = prediction + " is more likely to have said " + tweet_text
+            message = str(prediction) + " is more likely to have said " + str(tweet_text)
 
         return render_template('prediction.html', title="Predict Tweet Author", message=message)
 
