@@ -15,7 +15,7 @@ TWITTER_AUTH = tweepy.OAuthHandler(API_KEY, API_KEY_SECRET)
 TWITTER = tweepy.API(TWITTER_AUTH)
 
 #nlp model
-nlp = spacy.load('my_model')
+nlp = spacy.load('my_module/my_model')
 
 
 def vectorize_tweet(tweet_text):
@@ -48,8 +48,8 @@ def add_or_update_user(username):
             DB.session.add(db_tweet)
 
     except Exception as e:
-            session.rollback()
-            print('Error processing{}: {}'.format(username, e))
+        session.rollback()
+        print('Error processing{}: {}'.format(username, e))
 
     else:
         DB.session.commit()

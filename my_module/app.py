@@ -4,6 +4,7 @@ from flask import Flask, render_template, request
 from models import DB, User
 from twitter import add_or_update_user
 from predict import predict_user
+import logging
 # from os import getenv
 
 def create_app():
@@ -11,6 +12,9 @@ def create_app():
     """create and configure an instance of the Flask application"""
 
     app = Flask(__name__)
+    gunicorn_logger = logging.getLogger('gunicorn.error')
+    app.logger.handlers = gunicorn_logger.handlers
+    app.logger.setLevel(gunicorn_logger.level)
 
     app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///db.sqlite3'  #getenv("DATABASE_URI")
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
@@ -62,5 +66,5 @@ def create_app():
 
 app=create_app()
 
-if __name__ == "__main__":
-    app.run()
+# if __name__ == "__main__":
+#     app.run()
