@@ -1,9 +1,9 @@
 """Main application and routing logic for TwitOff"""
 
 from flask import Flask, render_template, request
-from models import DB, User
-from twitter import add_or_update_user
-from predict import predict_user
+from my_module.models import DB, User
+from my_module.twitter import add_or_update_user
+from my_module.predict import predict_user
 import logging
 
 
