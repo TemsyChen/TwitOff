@@ -3,14 +3,15 @@
 import tweepy
 import spacy
 from my_module.models import DB, Tweet, User
-from dotenv import load_dotenv
-from os import getenv
+# from dotenv import load_dotenv
+# from os import getenv
+import os
 
-load_dotenv()
+# load_dotenv()
 
 #twitter api credentials
-API_KEY = getenv('TWITTER_API_KEY', default='OOPS')
-API_KEY_SECRET = getenv('TWITTER_API_KEY_SECRET', default='OOPS')
+API_KEY = os.environ['TWITTER_API_KEY']
+API_KEY_SECRET = os.environ['TWITTER_API_KEY_SECRET']
 TWITTER_AUTH = tweepy.OAuthHandler(API_KEY, API_KEY_SECRET)
 TWITTER = tweepy.API(TWITTER_AUTH)
 
