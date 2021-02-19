@@ -2,7 +2,7 @@
 
 import tweepy
 import spacy
-from my_module.models import DB, Tweet, User
+from .models import DB, Tweet, User
 # from dotenv import load_dotenv
 # from os import getenv
 import os
